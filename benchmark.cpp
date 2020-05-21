@@ -1,3 +1,6 @@
+
+#define CGAL_TRACE_STREAM std::cerr
+
 #include "Octree.h"
 #include "Octree_3.h"
 
