@@ -38,11 +38,12 @@
 #include <CGAL/Search_traits_adapter.h>
 
 /*
- * These boost headers were not included here originally
+ * These headers were not included here originally
  * Adding them was necessary to make this header self sufficient
  */
 #include <boost/function.hpp>
 #include <boost/bind.hpp>
+#include <iostream>
 
 #include <stack>
 #include <queue>
