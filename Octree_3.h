@@ -22,7 +22,7 @@
 #ifndef CGAL_OCTREE_3_H
 #define CGAL_OCTREE_3_H
 
-/**
+/*
  * Not present or relevant for benchmarking
  */
 //#include <CGAL/license/Implicit_surface_reconstruction_3.h>
@@ -36,6 +36,13 @@
 #include <CGAL/Orthogonal_k_neighbor_search.h>
 #include <CGAL/Search_traits_3.h>
 #include <CGAL/Search_traits_adapter.h>
+
+/*
+ * These boost headers were not included here originally
+ * Adding them was necessary to make this header self sufficient
+ */
+#include <boost/function.hpp>
+#include <boost/bind.hpp>
 
 #include <stack>
 #include <queue>
