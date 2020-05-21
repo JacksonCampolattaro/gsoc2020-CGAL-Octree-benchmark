@@ -1,5 +1,3 @@
-
-
 #include "Octree.h"
 #include "Octree_3.h"
 
