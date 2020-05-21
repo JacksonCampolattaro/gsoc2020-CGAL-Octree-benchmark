@@ -44,6 +44,7 @@
 #include <boost/function.hpp>
 #include <boost/bind.hpp>
 #include <iostream>
+#include <fstream>
 
 #include <stack>
 #include <queue>
