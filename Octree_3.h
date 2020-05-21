@@ -22,7 +22,12 @@
 #ifndef CGAL_OCTREE_3_H
 #define CGAL_OCTREE_3_H
 
-#include <CGAL/license/Implicit_surface_reconstruction_3.h>
+/**
+ * Not present or relevant for benchmarking
+ */
+//#include <CGAL/license/Implicit_surface_reconstruction_3.h>
+
+
 #include <CGAL/bounding_box.h>
 #include <boost/iterator/transform_iterator.hpp>
 #include <CGAL/Aff_transformation_3.h>
