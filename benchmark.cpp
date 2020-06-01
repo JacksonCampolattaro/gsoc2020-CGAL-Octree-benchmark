@@ -4,21 +4,26 @@
 #include "Octree.h"
 #include "Octree_3.h"
 
-#include <CGAL/Cartesian.h>
+#include <CGAL/Exact_predicates_inexact_constructions_kernel.h>
+#include <CGAL/Point_set_3.h>
+#include <CGAL/Point_set_3/IO.h>
+
+#include <CGAL/point_generators_3.h>
 
 #include <catch2/catch.hpp>
 
+#include <fstream>
+#include <istream>
 
-typedef CGAL::Cartesian<float>  Kernel;
-typedef Kernel::Point_3 Point_3;
+typedef CGAL::Exact_predicates_inexact_constructions_kernel Kernel;
+typedef Kernel::FT FT;
+typedef Kernel::Point_3 Point;
+typedef Kernel::Vector_3 Vector;
+typedef CGAL::Point_set_3<Point> Point_set;
 
 TEST_CASE("Random points in cubic volume") {
 
     // TODO
-
-    Point_3 p{1.5, 2.0, 2.5};
-
-    std::cout << p << std::endl;
 }
 
 TEST_CASE("Random points on spherical surface") {
@@ -28,10 +33,20 @@ TEST_CASE("Random points on spherical surface") {
 
 TEST_CASE("Cleaned Statue surface") {
 
+    // Read example data from file
+    std::ifstream f("../data/archer_cleaned.ply");
+    Point_set point_set;
+    REQUIRE(CGAL::read_xyz_point_set(f, point_set));
+
     // TODO
 }
 
 TEST_CASE("Uncleaned Statue surface") {
+
+    // Read example data from file
+    std::ifstream f("../data/archer_original.ply");
+    Point_set point_set;
+    REQUIRE(CGAL::read_xyz_point_set(f, point_set));
 
     // TODO
 }
