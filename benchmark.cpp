@@ -17,4 +17,5 @@ TEST_CASE("Benchmark") {
     Point_3 p{1.5, 2.0, 2.5};
 
     std::cout << p << std::endl;
+
 }

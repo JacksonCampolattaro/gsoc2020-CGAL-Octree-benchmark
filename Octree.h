@@ -38,6 +38,7 @@ namespace CGAL {
             template<class Sdt>
             class DirectPointAccessor {
             public:
+
                 typedef Sdt Sd_traits;
                 typedef typename Sd_traits::Input_range::iterator Input_iterator;
 
