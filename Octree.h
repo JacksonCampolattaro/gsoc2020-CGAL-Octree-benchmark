@@ -40,7 +40,7 @@ namespace CGAL {
             public:
 
                 typedef Sdt Sd_traits;
-                typedef typename Sd_traits::Input_range::iterator Input_iterator;
+                typedef typename Sd_traits::Input_range::const_iterator Input_iterator; // FIXME: I had to tweak this
 
                 DirectPointAccessor() {}
 
@@ -159,7 +159,7 @@ namespace CGAL {
             class Octree : public PointAccessor {
 
                 typedef typename PointAccessor::Sd_traits Sd_traits;
-                typedef typename Sd_traits::Input_range::iterator Input_iterator;
+                typedef typename Sd_traits::Input_range::const_iterator Input_iterator; // FIXME: I had to tweak this
                 typedef Shape_base<Sd_traits> Shape;
                 typedef typename Sd_traits::Point_3 Point_3;
                 typedef typename Sd_traits::Vector_3 Vector_3;
