@@ -36,7 +36,7 @@ TEST_CASE("Cleaned Statue surface") {
     // Read example data from file
     std::ifstream f("../data/archer_cleaned.ply");
     Point_set point_set;
-    REQUIRE(CGAL::read_xyz_point_set(f, point_set));
+    REQUIRE(CGAL::read_ply_point_set(f, point_set));
 
     // TODO
 }
@@ -46,7 +46,7 @@ TEST_CASE("Uncleaned Statue surface") {
     // Read example data from file
     std::ifstream f("../data/archer_original.ply");
     Point_set point_set;
-    REQUIRE(CGAL::read_xyz_point_set(f, point_set));
+    REQUIRE(CGAL::read_ply_point_set(f, point_set));
 
     // TODO
 }
