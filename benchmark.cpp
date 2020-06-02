@@ -28,7 +28,7 @@ typedef Kernel::Point_3 Point;
 typedef CGAL::Point_set_3<Point> Point_set;
 
 typedef CGAL::Shape_detection::Efficient_RANSAC_traits
-        <Kernel, Point_set::Point_range, Point_set::Point_map, Point_set::Vector_map>
+        <Kernel, Point_set, Point_set::Point_map, Point_set::Vector_map>
         Traits;
 typedef CGAL::Shape_detection::internal::Octree
         <CGAL::Shape_detection::internal::DirectPointAccessor<Traits>>
@@ -53,6 +53,7 @@ TEST_CASE("Random points in cubic volume") {
     // Build the old octree
     Traits traits;
     OldOctree oldOctree(traits);
+    //oldOctree.createTree();
     // TODO
 
     // Build the new octree
