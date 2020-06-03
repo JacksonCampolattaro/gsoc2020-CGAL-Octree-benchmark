@@ -56,9 +56,9 @@ void bench(CGAL::Point_set_3<Point> points) {
     auto input_iterator_first = points.begin();
     auto input_iterator_beyond = points.end();
 
+    auto oldOctree = OldOctree((Traits()), input_iterator_first, input_iterator_beyond, point_map, normal_map);
     BENCHMARK(benchName.str() + " | Old") {
-        auto oldOctree = OldOctree((Traits()), input_iterator_first, input_iterator_beyond, point_map, normal_map);
-        return oldOctree;
+        oldOctree.createTree();
         // TODO
     };
 
