@@ -44,6 +44,9 @@ void bench(CGAL::Point_set_3<Point> points) {
             NewOctree;
 
 
+    std::stringstream benchName;
+    benchName << points.number_of_points() << " points";
+
     // Benchmark
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -53,13 +56,16 @@ void bench(CGAL::Point_set_3<Point> points) {
     auto input_iterator_first = points.begin();
     auto input_iterator_beyond = points.end();
 
-    OldOctree oldOctree((Traits()), input_iterator_first, input_iterator_beyond, point_map, normal_map);
+    BENCHMARK(benchName.str() + " | Old") {
+        auto oldOctree = OldOctree((Traits()), input_iterator_first, input_iterator_beyond, point_map, normal_map);
+        return oldOctree;
+        // TODO
+    };
 
-    // Build the new octree
-    // FIXME: I'm having trouble constructing the new octree
-    //NewOctree newOctree(points, point_map, normal_map);
-
-    // TODO
+    BENCHMARK(benchName.str() + " | New") {
+        // TODO
+        5+5;
+    };
 }
 
 
@@ -69,16 +75,18 @@ TEST_CASE("Random exact points in a cubic volume") {
     typedef Kernel::Point_3 Point;
     typedef CGAL::Point_set_3<Point> Point_set;
 
-    std::size_t N = 1000;
+    for (std::size_t N = 10; N <= 100000; N *= 10) {
 
-    // Generate random point set
-    Point_set points;
-    CGAL::Random_points_in_cube_3<Point> generator;
-    points.reserve(N);
-    for (std::size_t i = 0; i < N; ++i)
-        points.insert(*(generator++));
+        // Generate random point set
+        Point_set points;
+        CGAL::Random_points_in_cube_3<Point> generator;
+        points.reserve(N);
+        for (std::size_t i = 0; i < N; ++i)
+            points.insert(*(generator++));
 
-    BENCHMARK("Random exact points in a cubic volume") {return bench<Kernel, Point>(points);};
+        bench<Kernel, Point>(points);
+    }
+
 }
 
 TEST_CASE("Random exact points on spherical surface") {
@@ -87,16 +95,18 @@ TEST_CASE("Random exact points on spherical surface") {
     typedef Kernel::Point_3 Point;
     typedef CGAL::Point_set_3<Point> Point_set;
 
-    std::size_t N = 1000;
+    for (std::size_t N = 10; N <= 100000; N *= 10) {
 
-    // Generate random point set
-    Point_set points;
-    CGAL::Random_points_on_sphere_3<Point> generator;
-    points.reserve(N);
-    for (std::size_t i = 0; i < N; ++i)
-        points.insert(*(generator++));
+        // Generate random point set
+        Point_set points;
+        CGAL::Random_points_on_sphere_3<Point> generator;
+        points.reserve(N);
+        for (std::size_t i = 0; i < N; ++i)
+            points.insert(*(generator++));
 
-    BENCHMARK("Random exact points on spherical surface") {return bench<Kernel, Point>(points);};
+        bench<Kernel, Point>(points);
+    }
+
 }
 
 TEST_CASE("Cleaned Statue surface with exact points") {
@@ -110,7 +120,8 @@ TEST_CASE("Cleaned Statue surface with exact points") {
     Point_set points;
     stream >> points;
 
-    BENCHMARK("Cleaned Statue surface with exact points") {return bench<Kernel, Point>(points);};
+    bench<Kernel, Point>(points);
+
 }
 
 TEST_CASE("Uncleaned Statue surface with exact points") {
@@ -124,5 +135,5 @@ TEST_CASE("Uncleaned Statue surface with exact points") {
     Point_set points;
     stream >> points;
 
-    BENCHMARK("Uncleaned Statue surface with exact points") {return bench<Kernel, Point>(points);};
+    bench<Kernel, Point>(points);
 }
