@@ -111,6 +111,25 @@ TEST_CASE("Random cartesian float points in cubic volume") {
     }
 
 }
+TEST_CASE("Random cartesian double points in cubic volume") {
+
+    typedef CGAL::Simple_cartesian<double> Kernel;
+    typedef Kernel::Point_3 Point;
+    typedef CGAL::Point_set_3<Point> Point_set;
+
+    for (std::size_t N = 10; N <= 100000; N *= 10) {
+
+        // Generate random point set
+        Point_set points;
+        CGAL::Random_points_in_cube_3<Point> generator;
+        points.reserve(N);
+        for (std::size_t i = 0; i < N; ++i)
+            points.insert(*(generator++));
+
+        bench<Kernel, Point>(points);
+    }
+
+}
 
 TEST_CASE("Random EPICK points on spherical surface") {
 
@@ -135,6 +154,26 @@ TEST_CASE("Random EPICK points on spherical surface") {
 TEST_CASE("Random cartesian float points on spherical surface") {
 
     typedef CGAL::Simple_cartesian<float> Kernel;
+    typedef Kernel::Point_3 Point;
+    typedef CGAL::Point_set_3<Point> Point_set;
+
+    for (std::size_t N = 10; N <= 100000; N *= 10) {
+
+        // Generate random point set
+        Point_set points;
+        CGAL::Random_points_on_sphere_3<Point> generator;
+        points.reserve(N);
+        for (std::size_t i = 0; i < N; ++i)
+            points.insert(*(generator++));
+
+        bench<Kernel, Point>(points);
+    }
+
+}
+
+TEST_CASE("Random cartesian double points on spherical surface") {
+
+    typedef CGAL::Simple_cartesian<double> Kernel;
     typedef Kernel::Point_3 Point;
     typedef CGAL::Point_set_3<Point> Point_set;
 
@@ -182,6 +221,21 @@ TEST_CASE("Cleaned Statue surface with cartesian float points") {
 
 }
 
+TEST_CASE("Cleaned Statue surface with cartesian double points") {
+
+    typedef CGAL::Simple_cartesian<double> Kernel;
+    typedef Kernel::Point_3 Point;
+    typedef CGAL::Point_set_3<Point> Point_set;
+
+    // Read example data from file
+    std::ifstream stream("../data/archer_cleaned.ply");
+    Point_set points;
+    stream >> points;
+
+    bench<Kernel, Point>(points);
+
+}
+
 TEST_CASE("Uncleaned Statue surface with EPICK points") {
 
     typedef CGAL::Exact_predicates_inexact_constructions_kernel Kernel;
@@ -198,7 +252,21 @@ TEST_CASE("Uncleaned Statue surface with EPICK points") {
 
 TEST_CASE("Uncleaned Statue surface with cartesian float points") {
 
-    typedef CGAL::Exact_predicates_inexact_constructions_kernel Kernel;
+    typedef CGAL::Simple_cartesian<float> Kernel;
+    typedef Kernel::Point_3 Point;
+    typedef CGAL::Point_set_3<Point> Point_set;
+
+    // Read example data from file
+    std::ifstream stream("../data/archer_original.ply");
+    Point_set points;
+    stream >> points;
+
+    bench<Kernel, Point>(points);
+}
+
+TEST_CASE("Uncleaned Statue surface with cartesian double points") {
+
+    typedef CGAL::Simple_cartesian<double> Kernel;
     typedef Kernel::Point_3 Point;
     typedef CGAL::Point_set_3<Point> Point_set;
 
