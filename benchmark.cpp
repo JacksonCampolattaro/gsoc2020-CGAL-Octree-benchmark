@@ -24,6 +24,8 @@
 
 #include <catch2/catch.hpp>
 
+
+
 template<class Kernel, class Point>
 void bench(CGAL::Point_set_3<Point> points) {
 
@@ -45,7 +47,7 @@ void bench(CGAL::Point_set_3<Point> points) {
 
 
     std::stringstream benchName;
-    benchName << points.number_of_points() << " points";
+    benchName << "Tree  Construction | " << points.number_of_points() << " points";
 
     // Benchmark
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -59,19 +61,40 @@ void bench(CGAL::Point_set_3<Point> points) {
     auto oldOctree = OldOctree((Traits()), input_iterator_first, input_iterator_beyond, point_map, normal_map);
     BENCHMARK(benchName.str() + " | Old") {
         oldOctree.createTree();
-        // TODO
     };
 
     BENCHMARK(benchName.str() + " | New") {
         // TODO
+        //NewOctree newOctree(points, point_map, normal_map);
         5+5;
     };
 }
 
 
-TEST_CASE("Random EPICK points in a cubic volume") {
+TEST_CASE("Random EPICK points in cubic volume") {
 
     typedef CGAL::Exact_predicates_inexact_constructions_kernel Kernel;
+    typedef Kernel::Point_3 Point;
+    typedef CGAL::Point_set_3<Point> Point_set;
+
+    for (std::size_t N = 10; N <= 10000; N *= 10) {
+
+        // Generate random point set
+        Point_set points;
+        CGAL::Random_points_in_cube_3<Point> generator;
+        points.reserve(N);
+        for (std::size_t i = 0; i < N; ++i)
+            points.insert(*(generator++));
+
+        bench<Kernel, Point>(points);
+    }
+
+}
+
+
+TEST_CASE("Random cartesian float points in cubic volume") {
+
+    typedef CGAL::Simple_cartesian<float> Kernel;
     typedef Kernel::Point_3 Point;
     typedef CGAL::Point_set_3<Point> Point_set;
 
@@ -109,6 +132,26 @@ TEST_CASE("Random EPICK points on spherical surface") {
 
 }
 
+TEST_CASE("Random cartesian float points on spherical surface") {
+
+    typedef CGAL::Simple_cartesian<float> Kernel;
+    typedef Kernel::Point_3 Point;
+    typedef CGAL::Point_set_3<Point> Point_set;
+
+    for (std::size_t N = 10; N <= 100000; N *= 10) {
+
+        // Generate random point set
+        Point_set points;
+        CGAL::Random_points_on_sphere_3<Point> generator;
+        points.reserve(N);
+        for (std::size_t i = 0; i < N; ++i)
+            points.insert(*(generator++));
+
+        bench<Kernel, Point>(points);
+    }
+
+}
+
 TEST_CASE("Cleaned Statue surface with EPICK points") {
 
     typedef CGAL::Exact_predicates_inexact_constructions_kernel Kernel;
@@ -124,7 +167,36 @@ TEST_CASE("Cleaned Statue surface with EPICK points") {
 
 }
 
+TEST_CASE("Cleaned Statue surface with cartesian float points") {
+
+    typedef CGAL::Simple_cartesian<float> Kernel;
+    typedef Kernel::Point_3 Point;
+    typedef CGAL::Point_set_3<Point> Point_set;
+
+    // Read example data from file
+    std::ifstream stream("../data/archer_cleaned.ply");
+    Point_set points;
+    stream >> points;
+
+    bench<Kernel, Point>(points);
+
+}
+
 TEST_CASE("Uncleaned Statue surface with EPICK points") {
+
+    typedef CGAL::Exact_predicates_inexact_constructions_kernel Kernel;
+    typedef Kernel::Point_3 Point;
+    typedef CGAL::Point_set_3<Point> Point_set;
+
+    // Read example data from file
+    std::ifstream stream("../data/archer_original.ply");
+    Point_set points;
+    stream >> points;
+
+    bench<Kernel, Point>(points);
+}
+
+TEST_CASE("Uncleaned Statue surface with cartesian float points") {
 
     typedef CGAL::Exact_predicates_inexact_constructions_kernel Kernel;
     typedef Kernel::Point_3 Point;
