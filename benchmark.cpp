@@ -111,6 +111,7 @@ TEST_CASE("Random cartesian float points in cubic volume") {
     }
 
 }
+
 TEST_CASE("Random cartesian double points in cubic volume") {
 
     typedef CGAL::Simple_cartesian<double> Kernel;
@@ -128,7 +129,6 @@ TEST_CASE("Random cartesian double points in cubic volume") {
 
         bench<Kernel, Point>(points);
     }
-
 }
 
 TEST_CASE("Random EPICK points on spherical surface") {
