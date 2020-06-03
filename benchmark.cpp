@@ -69,7 +69,7 @@ void bench(CGAL::Point_set_3<Point> points) {
 }
 
 
-TEST_CASE("Random exact points in a cubic volume") {
+TEST_CASE("Random EPICK points in a cubic volume") {
 
     typedef CGAL::Exact_predicates_inexact_constructions_kernel Kernel;
     typedef Kernel::Point_3 Point;
@@ -89,7 +89,7 @@ TEST_CASE("Random exact points in a cubic volume") {
 
 }
 
-TEST_CASE("Random exact points on spherical surface") {
+TEST_CASE("Random EPICK points on spherical surface") {
 
     typedef CGAL::Exact_predicates_inexact_constructions_kernel Kernel;
     typedef Kernel::Point_3 Point;
@@ -109,7 +109,7 @@ TEST_CASE("Random exact points on spherical surface") {
 
 }
 
-TEST_CASE("Cleaned Statue surface with exact points") {
+TEST_CASE("Cleaned Statue surface with EPICK points") {
 
     typedef CGAL::Exact_predicates_inexact_constructions_kernel Kernel;
     typedef Kernel::Point_3 Point;
@@ -124,7 +124,7 @@ TEST_CASE("Cleaned Statue surface with exact points") {
 
 }
 
-TEST_CASE("Uncleaned Statue surface with exact points") {
+TEST_CASE("Uncleaned Statue surface with EPICK points") {
 
     typedef CGAL::Exact_predicates_inexact_constructions_kernel Kernel;
     typedef Kernel::Point_3 Point;
