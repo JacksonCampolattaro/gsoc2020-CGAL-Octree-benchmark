@@ -335,10 +335,13 @@ public: // functions :
     m_points_map(point_map),
     m_normals_map(normal_map) {
     // compute bbox
-    typedef typename PointRange::value_type PointRange_t;
-    boost::function<Point(PointRange_t &)> pwn_it_to_point_it = boost::bind(&PointRange_t::first, _1);
-    Iso_cuboid bbox = CGAL::bounding_box(boost::make_transform_iterator(pwn.begin(), pwn_it_to_point_it),
-                                         boost::make_transform_iterator(pwn.end(), pwn_it_to_point_it));
+    Iso_cuboid bbox = CGAL::bounding_box(boost::make_transform_iterator
+                                         (m_ranges.begin(),
+                                          CGAL::Property_map_to_unary_function<PointMap>(m_points_map)),
+                                         boost::make_transform_iterator
+                                         (m_ranges.end(),
+                                          CGAL::Property_map_to_unary_function<PointMap>(m_points_map)));
+
     Point bbox_centroid = midpoint(bbox.min(), bbox.max());
 
     // scale bbox
@@ -360,7 +363,7 @@ public: // functions :
     // save octree attributes
     m_bbox_min = bbox.min();
     m_bbox_side = bbox.max()[0] - m_bbox_min[0];
-    for (InputIterator it = pwn.cbegin(); it != pwn.cend(); it++)
+    for (InputIterator it = pwn.begin(); it != pwn.end(); it++)
       m_root.add_point(it);
   }
 
