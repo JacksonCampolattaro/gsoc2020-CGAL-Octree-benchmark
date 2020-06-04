@@ -24,6 +24,11 @@
 
 #include <catch2/catch.hpp>
 
+// Simon: harmless fix in case CATCH is not well-configured like on my
+// computer :)
+#ifndef BENCHMARK
+#define BENCHMARK(x)
+#endif
 
 
 template<class Kernel, class Point>
@@ -65,7 +70,7 @@ void bench(CGAL::Point_set_3<Point> points) {
 
     BENCHMARK(benchName.str() + " | New") {
         // TODO
-        //NewOctree newOctree(points, point_map, normal_map);
+        NewOctree newOctree(points, point_map, normal_map);
         5+5;
     };
 }
