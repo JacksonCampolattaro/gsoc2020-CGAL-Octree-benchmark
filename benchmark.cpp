@@ -8,11 +8,7 @@
 
 // Necessary for testing
 #include <CGAL/Exact_predicates_inexact_constructions_kernel.h>
-#include <CGAL/Point_set_3.h>
-
-#include <boost/iterator/filter_iterator.hpp>
-#include <CGAL/bounding_box.h>
-#include <CGAL/Iterator_range.h>
+#include <CGAL/Point_set_3.h>>
 
 // Used to create and load data sets
 #include <CGAL/point_generators_3.h>
@@ -24,11 +20,6 @@
 
 #include <catch2/catch.hpp>
 
-// Simon: harmless fix in case CATCH is not well-configured like on my
-// computer :)
-#ifndef BENCHMARK
-#define BENCHMARK(x)
-#endif
 
 
 template<class Kernel, class Point>
@@ -52,7 +43,7 @@ void bench(CGAL::Point_set_3<Point> points) {
 
 
     std::stringstream benchName;
-    benchName << "Tree  Construction | " << points.number_of_points() << " points";
+    benchName << "Tree Construction | " << points.number_of_points() << " points";
 
     // Benchmark
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
