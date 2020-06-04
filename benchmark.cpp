@@ -17,10 +17,7 @@
 
 // Used for benchmarking
 #define CATCH_CONFIG_ENABLE_BENCHMARKING
-
 #include <catch2/catch.hpp>
-
-
 
 template<class Kernel, class Point>
 void bench(CGAL::Point_set_3<Point> points) {
