@@ -8,7 +8,7 @@
 
 // Necessary for testing
 #include <CGAL/Exact_predicates_inexact_constructions_kernel.h>
-#include <CGAL/Point_set_3.h>>
+#include <CGAL/Point_set_3.h>
 
 // Used to create and load data sets
 #include <CGAL/point_generators_3.h>
@@ -51,15 +51,13 @@ void bench(CGAL::Point_set_3<Point> points) {
     auto input_iterator_first = points.begin();
     auto input_iterator_beyond = points.end();
 
-    auto oldOctree = OldOctree((Traits()), input_iterator_first, input_iterator_beyond, point_map, normal_map);
     BENCHMARK(benchName.str() + " | Old") {
+        auto oldOctree = OldOctree((Traits()), input_iterator_first, input_iterator_beyond, point_map, normal_map);
         oldOctree.createTree();
     };
 
     BENCHMARK(benchName.str() + " | New") {
-        // TODO
         NewOctree newOctree(points, point_map, normal_map);
-        5+5;
     };
 }
 
