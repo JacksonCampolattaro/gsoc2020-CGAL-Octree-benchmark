@@ -4,7 +4,7 @@
 // To be tested
 #include "Octree.h"
 #include <CGAL/Shape_detection/Efficient_RANSAC/Efficient_RANSAC_traits.h>
-#include "Octree_3.h"
+#include <CGAL/Octree.h>
 
 // Necessary for testing
 #include <CGAL/Exact_predicates_inexact_constructions_kernel.h>
@@ -19,6 +19,9 @@
 #define CATCH_CONFIG_ENABLE_BENCHMARKING
 
 #include <catch2/catch.hpp>
+
+#define BUCKET_SIZE 20
+#define MAX_DEPTH 10
 
 template<class Kernel, class Point>
 void bench(CGAL::Point_set_3<Point> points) {
@@ -35,7 +38,7 @@ void bench(CGAL::Point_set_3<Point> points) {
           OldOctree;
 
   // Defining the New Octree
-  typedef CGAL::OCTREE::Octree
+  typedef CGAL::Octree
           <Kernel, Point_set, typename Point_set::Point_map, typename Point_set::Vector_map>
           NewOctree;
 
@@ -54,12 +57,15 @@ void bench(CGAL::Point_set_3<Point> points) {
 
   BENCHMARK(benchName.str() + " | Old") {
     auto oldOctree = OldOctree((Traits()), input_iterator_first,
-                                                                       input_iterator_beyond, point_map, normal_map);
+            input_iterator_beyond, point_map, normal_map,
+            0, BUCKET_SIZE, MAX_DEPTH);
+
     oldOctree.createTree();
   };
 
   BENCHMARK(benchName.str() + " | New") {
     NewOctree newOctree(points, point_map, normal_map);
+    newOctree.refine(MAX_DEPTH, BUCKET_SIZE);
   };
 }
 
