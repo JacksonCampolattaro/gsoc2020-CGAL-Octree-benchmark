@@ -2,7 +2,7 @@
 #define CGAL_TRACE_STREAM std::cerr
 
 // To be tested
-#include "Octree.h"
+#include <CGAL/Shape_detection/Efficient_RANSAC/Octree.h>
 #include <CGAL/Shape_detection/Efficient_RANSAC/Efficient_RANSAC_traits.h>
 #include <CGAL/Octree.h>
 
