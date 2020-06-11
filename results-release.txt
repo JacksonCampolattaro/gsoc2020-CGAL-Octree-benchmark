@@ -1,0 +1,440 @@
+./benchmark
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+benchmark is a Catch v2.11.0 host application.
+Run with -? for options
+
+-------------------------------------------------------------------------------
+Random EPICK points in cubic volume
+-------------------------------------------------------------------------------
+/home/jackcamp/Documents/gsoc2020-CGAL-Octree-benchmark/benchmark.cpp:73
+...............................................................................
+
+benchmark name                                  samples       iterations    estimated
+                                                mean          low mean      high mean
+                                                std dev       low std dev   high std dev
+-------------------------------------------------------------------------------
+Tree Construction | 10 points | Old                       100            82     2.7306 ms
+                                                       335 ns        334 ns        337 ns
+                                                         7 ns          3 ns         13 ns
+
+Tree Construction | 10 points | New                       100            70      2.716 ms
+                                                       387 ns        386 ns        388 ns
+                                                         2 ns          1 ns          4 ns
+
+Tree Construction | 100 points | Old                      100            29     2.7637 ms
+                                                       947 ns        945 ns        952 ns
+                                                        16 ns          8 ns         32 ns
+
+Tree Construction | 100 points | New                      100             6     2.7852 ms
+                                                     4.595 us      4.576 us       4.62 us
+                                                       109 ns         81 ns        152 ns
+
+Tree Construction | 1000 points | Old                     100             2     3.0084 ms
+                                                    14.957 us     14.898 us     15.081 us
+                                                       414 ns        220 ns        688 ns
+
+Tree Construction | 1000 points | New                     100             1     8.2773 ms
+                                                    79.759 us     79.079 us     80.534 us
+                                                     3.691 us      3.333 us      4.042 us
+
+Tree Construction | 10000 points | Old                    100             1    26.5626 ms
+                                                   265.523 us    264.527 us    267.266 us
+                                                     6.532 us      4.085 us     10.212 us
+
+Tree Construction | 10000 points | New                    100             1    145.232 ms
+                                                   1.50026 ms    1.49025 ms    1.52264 ms
+                                                    72.276 us     28.932 us    124.676 us
+
+
+-------------------------------------------------------------------------------
+Random cartesian float points in cubic volume
+-------------------------------------------------------------------------------
+/home/jackcamp/Documents/gsoc2020-CGAL-Octree-benchmark/benchmark.cpp:94
+...............................................................................
+
+benchmark name                                  samples       iterations    estimated
+                                                mean          low mean      high mean
+                                                std dev       low std dev   high std dev
+-------------------------------------------------------------------------------
+Tree Construction | 10 points | Old                       100            79     2.7176 ms
+                                                       343 ns        341 ns        347 ns
+                                                        13 ns          7 ns         23 ns
+
+Tree Construction | 10 points | New                       100            69     2.7186 ms
+                                                       401 ns        399 ns        405 ns
+                                                        16 ns         10 ns         25 ns
+
+Tree Construction | 100 points | Old                      100            31     2.7125 ms
+                                                       890 ns        887 ns        896 ns
+                                                        20 ns          8 ns         35 ns
+
+Tree Construction | 100 points | New                      100             7     3.1332 ms
+                                                      4.48 us       4.47 us      4.503 us
+                                                        74 ns         33 ns        125 ns
+
+Tree Construction | 1000 points | Old                     100             2     2.8912 ms
+                                                    14.692 us     14.665 us     14.778 us
+                                                       223 ns         78 ns        490 ns
+
+Tree Construction | 1000 points | New                     100             1     8.2046 ms
+                                                    82.117 us     81.966 us     82.353 us
+                                                       951 ns        674 ns      1.373 us
+
+Tree Construction | 10000 points | Old                    100             1    23.8966 ms
+                                                   241.578 us    240.763 us    242.567 us
+                                                     4.569 us      3.828 us      6.451 us
+
+Tree Construction | 10000 points | New                    100             1    143.121 ms
+                                                   1.45321 ms    1.45115 ms      1.456 ms
+                                                    12.127 us      9.526 us     16.139 us
+
+Tree Construction | 100000 points | Old                   100             1    378.309 ms
+                                                    3.7805 ms    3.77521 ms    3.78762 ms
+                                                    31.171 us     24.944 us     43.721 us
+
+Tree Construction | 100000 points | New                   100             1     2.55297 s
+                                                   32.3944 ms    32.0816 ms    32.7042 ms
+                                                   1.59222 ms    1.35213 ms    1.90633 ms
+
+
+-------------------------------------------------------------------------------
+Random cartesian double points in cubic volume
+-------------------------------------------------------------------------------
+/home/jackcamp/Documents/gsoc2020-CGAL-Octree-benchmark/benchmark.cpp:114
+...............................................................................
+
+benchmark name                                  samples       iterations    estimated
+                                                mean          low mean      high mean
+                                                std dev       low std dev   high std dev
+-------------------------------------------------------------------------------
+Tree Construction | 10 points | Old                       100            75       2.73 ms
+                                                       371 ns        370 ns        374 ns
+                                                         8 ns          2 ns         14 ns
+
+Tree Construction | 10 points | New                       100            73     2.7229 ms
+                                                       385 ns        381 ns        396 ns
+                                                        28 ns          8 ns         64 ns
+
+Tree Construction | 100 points | Old                      100            30      2.724 ms
+                                                       850 ns        849 ns        854 ns
+                                                        10 ns          6 ns         21 ns
+
+Tree Construction | 100 points | New                      100             7     3.1535 ms
+                                                     4.452 us      4.433 us      4.528 us
+                                                       165 ns         30 ns        379 ns
+
+Tree Construction | 1000 points | Old                     100             2      3.225 ms
+                                                    16.248 us     16.196 us     16.372 us
+                                                       386 ns        154 ns        682 ns
+
+Tree Construction | 1000 points | New                     100             1      8.183 ms
+                                                    77.234 us     77.085 us     77.488 us
+                                                       972 ns        645 ns       1.43 us
+
+Tree Construction | 10000 points | Old                    100             1    25.8312 ms
+                                                   258.115 us    257.698 us    258.812 us
+                                                       2.7 us      1.866 us      4.668 us
+
+Tree Construction | 10000 points | New                    100             1    138.133 ms
+                                                   1.42563 ms    1.41465 ms    1.45529 ms
+                                                    82.145 us     14.908 us    165.387 us
+
+Tree Construction | 100000 points | Old                   100             1    408.466 ms
+                                                   4.12721 ms     4.1197 ms    4.14816 ms
+                                                    58.848 us     26.077 us    126.422 us
+
+Tree Construction | 100000 points | New                   100             1     2.79322 s
+                                                   35.3743 ms    34.9645 ms    35.8001 ms
+                                                   2.13346 ms    1.84957 ms    2.67678 ms
+
+
+-------------------------------------------------------------------------------
+Random EPICK points on spherical surface
+-------------------------------------------------------------------------------
+/home/jackcamp/Documents/gsoc2020-CGAL-Octree-benchmark/benchmark.cpp:133
+...............................................................................
+
+benchmark name                                  samples       iterations    estimated
+                                                mean          low mean      high mean
+                                                std dev       low std dev   high std dev
+-------------------------------------------------------------------------------
+Tree Construction | 10 points | Old                       100            84     2.7384 ms
+                                                       333 ns        332 ns        335 ns
+                                                         6 ns          3 ns         10 ns
+
+Tree Construction | 10 points | New                       100            68     2.7404 ms
+                                                       403 ns        402 ns        405 ns
+                                                         7 ns          4 ns         11 ns
+
+Tree Construction | 100 points | Old                      100            28     2.7328 ms
+                                                       995 ns        991 ns      1.004 us
+                                                        30 ns         18 ns         44 ns
+
+Tree Construction | 100 points | New                      100             7     3.1507 ms
+                                                     4.531 us      4.517 us      4.567 us
+                                                       106 ns         40 ns        190 ns
+
+Tree Construction | 1000 points | Old                     100             2      3.922 ms
+                                                     19.66 us     19.518 us     20.076 us
+                                                     1.125 us        464 ns      2.414 us
+
+Tree Construction | 1000 points | New                     100             1     9.2155 ms
+                                                    89.696 us      89.09 us     91.213 us
+                                                     4.498 us      1.523 us      8.494 us
+
+Tree Construction | 10000 points | Old                    100             1     28.817 ms
+                                                     285.6 us    283.649 us    288.775 us
+                                                    12.455 us      8.479 us     18.309 us
+
+Tree Construction | 10000 points | New                    100             1    166.545 ms
+                                                   1.73837 ms    1.72671 ms    1.75804 ms
+                                                    75.789 us     52.586 us    119.654 us
+
+Tree Construction | 100000 points | Old                   100             1     417.18 ms
+                                                   4.21518 ms    4.18688 ms    4.27777 ms
+                                                   203.682 us     89.693 us    349.828 us
+
+Tree Construction | 100000 points | New                   100             1     2.62256 s
+                                                   46.4637 ms    45.0832 ms    47.7104 ms
+                                                   6.71215 ms    5.73285 ms    7.89147 ms
+
+
+-------------------------------------------------------------------------------
+Random cartesian float points on spherical surface
+-------------------------------------------------------------------------------
+/home/jackcamp/Documents/gsoc2020-CGAL-Octree-benchmark/benchmark.cpp:153
+...............................................................................
+
+benchmark name                                  samples       iterations    estimated
+                                                mean          low mean      high mean
+                                                std dev       low std dev   high std dev
+-------------------------------------------------------------------------------
+Tree Construction | 10 points | Old                       100            77     2.7258 ms
+                                                       358 ns        355 ns        364 ns
+                                                        21 ns         13 ns         31 ns
+
+Tree Construction | 10 points | New                       100            69     2.7324 ms
+                                                       408 ns        407 ns        410 ns
+                                                         7 ns          3 ns         15 ns
+
+Tree Construction | 100 points | Old                      100            25      2.725 ms
+                                                     1.229 us      1.221 us      1.243 us
+                                                        52 ns         33 ns         83 ns
+
+Tree Construction | 100 points | New                      100             6     2.7534 ms
+                                                     5.032 us       4.85 us       5.28 us
+                                                     1.076 us        870 ns      1.351 us
+
+Tree Construction | 1000 points | Old                     100             2     3.7084 ms
+                                                    18.395 us     18.283 us     18.738 us
+                                                       900 ns        346 ns      1.957 us
+
+Tree Construction | 1000 points | New                     100             1     8.7854 ms
+                                                    88.111 us     87.892 us      88.44 us
+                                                     1.347 us        983 ns      1.768 us
+
+Tree Construction | 10000 points | Old                    100             1    25.0466 ms
+                                                   247.602 us    247.094 us    248.269 us
+                                                      2.96 us      2.298 us      3.879 us
+
+Tree Construction | 10000 points | New                    100             1    156.316 ms
+                                                   1.66761 ms    1.65057 ms    1.68954 ms
+                                                    98.096 us     80.767 us    113.418 us
+
+Tree Construction | 100000 points | Old                   100             1     382.19 ms
+                                                   3.85544 ms    3.81543 ms     3.9563 ms
+                                                   291.781 us     52.007 us    531.476 us
+
+Tree Construction | 100000 points | New                   100             1     2.61554 s
+                                                   42.2727 ms    41.1576 ms    43.3017 ms
+                                                   5.46804 ms    4.57448 ms    6.82665 ms
+
+
+-------------------------------------------------------------------------------
+Random cartesian double points on spherical surface
+-------------------------------------------------------------------------------
+/home/jackcamp/Documents/gsoc2020-CGAL-Octree-benchmark/benchmark.cpp:173
+...............................................................................
+
+benchmark name                                  samples       iterations    estimated
+                                                mean          low mean      high mean
+                                                std dev       low std dev   high std dev
+-------------------------------------------------------------------------------
+Tree Construction | 10 points | Old                       100            82     2.7306 ms
+                                                       341 ns        341 ns        343 ns
+                                                         5 ns          2 ns          8 ns
+
+Tree Construction | 10 points | New                       100            73     2.7448 ms
+                                                       378 ns        376 ns        380 ns
+                                                         8 ns          5 ns         11 ns
+
+Tree Construction | 100 points | Old                      100            30      2.778 ms
+                                                       881 ns        878 ns        887 ns
+                                                        22 ns         14 ns         31 ns
+
+Tree Construction | 100 points | New                      100             7     3.1108 ms
+                                                      4.47 us      4.452 us      4.514 us
+                                                       132 ns         63 ns        260 ns
+
+Tree Construction | 1000 points | Old                     100             2     3.9604 ms
+                                                    19.835 us     19.765 us     20.006 us
+                                                       521 ns        252 ns      1.002 us
+
+Tree Construction | 1000 points | New                     100             1     8.9323 ms
+                                                    90.034 us     89.558 us     90.796 us
+                                                     3.003 us      2.072 us      4.203 us
+
+Tree Construction | 10000 points | Old                    100             1    25.0561 ms
+                                                   269.619 us    268.955 us    270.406 us
+                                                     3.674 us      2.724 us      5.172 us
+
+Tree Construction | 10000 points | New                    100             1    166.364 ms
+                                                   1.72726 ms    1.72366 ms    1.73088 ms
+                                                    18.505 us     16.691 us     20.651 us
+
+Tree Construction | 100000 points | Old                   100             1    386.291 ms
+                                                   3.87127 ms    3.86786 ms    3.87852 ms
+                                                    24.336 us     13.981 us     47.732 us
+
+Tree Construction | 100000 points | New                   100             1     2.62088 s
+                                                   40.6629 ms    39.7583 ms    41.3884 ms
+                                                   4.13692 ms    3.38368 ms    5.03521 ms
+
+
+-------------------------------------------------------------------------------
+Cleaned Statue surface with EPICK points
+-------------------------------------------------------------------------------
+/home/jackcamp/Documents/gsoc2020-CGAL-Octree-benchmark/benchmark.cpp:193
+...............................................................................
+
+benchmark name                                  samples       iterations    estimated
+                                                mean          low mean      high mean
+                                                std dev       low std dev   high std dev
+-------------------------------------------------------------------------------
+Tree Construction | 380306 points | Old                   100             1     2.19286 s
+                                                     22.22 ms     22.146 ms     22.329 ms
+                                                   452.154 us     332.21 us    633.068 us
+
+Tree Construction | 380306 points | New                   100             1     16.3129 s
+                                                   508.559 ms    474.147 ms    536.911 ms
+                                                    159.06 ms    136.101 ms    181.039 ms
+
+
+-------------------------------------------------------------------------------
+Cleaned Statue surface with cartesian float points
+-------------------------------------------------------------------------------
+/home/jackcamp/Documents/gsoc2020-CGAL-Octree-benchmark/benchmark.cpp:208
+...............................................................................
+
+benchmark name                                  samples       iterations    estimated
+                                                mean          low mean      high mean
+                                                std dev       low std dev   high std dev
+-------------------------------------------------------------------------------
+Tree Construction | 380306 points | Old                   100             1     1.75033 s
+                                                   17.4561 ms    17.4132 ms    17.5264 ms
+                                                   275.656 us    189.465 us    444.564 us
+
+Tree Construction | 380306 points | New                   100             1     15.4359 s
+                                                   509.189 ms    473.826 ms    538.993 ms
+                                                   165.488 ms    142.376 ms    187.801 ms
+
+
+-------------------------------------------------------------------------------
+Cleaned Statue surface with cartesian double points
+-------------------------------------------------------------------------------
+/home/jackcamp/Documents/gsoc2020-CGAL-Octree-benchmark/benchmark.cpp:223
+...............................................................................
+
+benchmark name                                  samples       iterations    estimated
+                                                mean          low mean      high mean
+                                                std dev       low std dev   high std dev
+-------------------------------------------------------------------------------
+Tree Construction | 380306 points | Old                   100             1     2.05527 s
+                                                   21.3481 ms    21.1985 ms    21.5503 ms
+                                                   886.022 us    715.096 us    1.29113 ms
+
+Tree Construction | 380306 points | New                   100             1     12.9483 s
+                                                   508.247 ms    473.857 ms    536.415 ms
+                                                   157.879 ms    134.851 ms    179.837 ms
+
+
+-------------------------------------------------------------------------------
+Uncleaned Statue surface with EPICK points
+-------------------------------------------------------------------------------
+/home/jackcamp/Documents/gsoc2020-CGAL-Octree-benchmark/benchmark.cpp:238
+...............................................................................
+
+benchmark name                                  samples       iterations    estimated
+                                                mean          low mean      high mean
+                                                std dev       low std dev   high std dev
+-------------------------------------------------------------------------------
+Tree Construction | 1059146 points | Old                  100             1      11.322 s
+                                                   93.7068 ms    93.4625 ms    93.9934 ms
+                                                   1.34657 ms    1.09753 ms    1.87009 ms
+
+Tree Construction | 1059146 points | New                  100             1     50.0864 s
+                                                    1.61237 s     1.50444 s     1.70357 s
+                                                   506.653 ms    436.864 ms    574.738 ms
+
+
+-------------------------------------------------------------------------------
+Uncleaned Statue surface with cartesian float points
+-------------------------------------------------------------------------------
+/home/jackcamp/Documents/gsoc2020-CGAL-Octree-benchmark/benchmark.cpp:252
+...............................................................................
+
+benchmark name                                  samples       iterations    estimated
+                                                mean          low mean      high mean
+                                                std dev       low std dev   high std dev
+-------------------------------------------------------------------------------
+Tree Construction | 1059146 points | Old                  100             1     6.12753 s
+                                                    63.865 ms    63.6316 ms    64.3236 ms
+                                                   1.61617 ms    811.774 us     2.7818 ms
+
+Tree Construction | 1059146 points | New                  100             1      39.977 s
+                                                    1.61536 s     1.50499 s     1.70861 s
+                                                   517.585 ms    445.454 ms    587.177 ms
+
+
+-------------------------------------------------------------------------------
+Uncleaned Statue surface with cartesian double points
+-------------------------------------------------------------------------------
+/home/jackcamp/Documents/gsoc2020-CGAL-Octree-benchmark/benchmark.cpp:266
+...............................................................................
+
+benchmark name                                  samples       iterations    estimated
+                                                mean          low mean      high mean
+                                                std dev       low std dev   high std dev
+-------------------------------------------------------------------------------
+Tree Construction | 1059146 points | Old                  100             1     11.0457 s
+                                                   88.4657 ms    88.2698 ms    88.6678 ms
+                                                   1.01386 ms    843.717 us      1.244 ms
+
+Tree Construction | 1059146 points | New                  100             1     44.1477 s
+                                                    1.61916 s     1.50917 s     1.71082 s
+                                                   509.081 ms    438.408 ms    577.791 ms
+
+
+-------------------------------------------------------------------------------
+Random EPICK points on spherical surface, to mimic cleaned statue
+-------------------------------------------------------------------------------
+/home/jackcamp/Documents/gsoc2020-CGAL-Octree-benchmark/benchmark.cpp:280
+...............................................................................
+
+benchmark name                                  samples       iterations    estimated
+                                                mean          low mean      high mean
+                                                std dev       low std dev   high std dev
+-------------------------------------------------------------------------------
+Tree Construction | 380306 points | Old                   100             1     2.29792 s
+                                                   23.6734 ms    23.5885 ms    23.8976 ms
+                                                    657.47 us    314.587 us    1.38925 ms
+
+Tree Construction | 380306 points | New                   100             1     14.9086 s
+                                                   220.486 ms    213.054 ms    226.917 ms
+                                                   35.0402 ms    30.3532 ms    40.2587 ms
+
+
+===============================================================================
+test cases: 13 | 13 passed
+assertions:  0 |  0 passed
